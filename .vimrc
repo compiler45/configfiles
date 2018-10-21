@@ -32,6 +32,8 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-smartinput'
 
 Plug 'mattn/emmet-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'ap/vim-css-color'
 Plug 'groenewege/vim-less'
 Plug 'Glench/Vim-Jinja2-Syntax'
@@ -141,6 +143,7 @@ au BufNewFile,BufRead *.py
 
 " Magit mapping 
 map <leader>m :Magit<CR>
+let g:magit_commit_title_limit=100
 
 " Customisations for YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -165,6 +168,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" close left and right window without navigating to them
 
 " Make Gdiff split vertically
 set diffopt+=vertical
@@ -236,11 +241,21 @@ nnoremap - dd
 
 " edit .vimrc oh so easily!
 nnoremap <leader>ev :vsp ~/.vimrc<cr>
+nnoremap <leader>es :sp ~/.vimrc<cr>
 
 " delete line, stay in insert mode
 inoremap <c-d> <esc>S
 
+" capitalise a word, stay at end of word
+inoremap <c-u> <esc>gUawea
 
+" a mapping to delete the last character at the end of a line
 
+" save files as soon as they are created
+" autocmd BufNewFile * :write
 
+" expand cls -> class in python files
+autocmd FileType python :iabbrev cls class
 
+" class init
+autocmd FileType python :iabbrev clsinit def __init__(self):<left><left>
