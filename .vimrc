@@ -244,7 +244,7 @@ nnoremap <leader>ev :vsp ~/.vimrc<cr>
 nnoremap <leader>es :sp ~/.vimrc<cr>
 
 " delete line, stay in insert mode
-inoremap <c-d> <esc>S
+" inoremap <c-d> <esc>S
 
 " capitalise a word, stay at end of word
 inoremap <c-u> <esc>gUawea
@@ -255,7 +255,16 @@ inoremap <c-u> <esc>gUawea
 " autocmd BufNewFile * :write
 
 " expand cls -> class in python files
-autocmd FileType python :iabbrev cls class
+au FileType python :iabbrev cls class
 
 " class init
-autocmd FileType python :iabbrev clsinit def __init__(self):<left><left>
+au FileType python :iabbrev clsinit def __init__(self):<left><left>
+
+map <localleader> \
+aug filetype_html
+    au!
+    au FileType html nnoremap <buffer> <localleader>f Vatzf
+aug END
+
+inoremap ^L ^X^L
+inoremap ^F ^X^F
