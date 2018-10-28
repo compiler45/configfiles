@@ -163,13 +163,11 @@ if has("autocmd")
   autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
 endif
 
-"split navigations
+"simplify window navigation by skipping the <c-w>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-" close left and right window without navigating to them
 
 " Make Gdiff split vertically
 set diffopt+=vertical
@@ -205,13 +203,6 @@ set clipboard=unnamed
 " Show branch name
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
-" opening files in current directory
-" cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
-" map <leader>ew :e %%
-" map <leader>es :sp %%
-" map <leader>ev :vsp %%
-" map <leader>et :tabe %%
-
 " turn on omni-completion for CSS
 set omnifunc=csscomplete#CompleteCSS
 
@@ -244,15 +235,12 @@ nnoremap <leader>ev :vsp ~/.vimrc<cr>
 nnoremap <leader>es :sp ~/.vimrc<cr>
 
 " delete line, stay in insert mode
-" inoremap <c-d> <esc>S
+inoremap <c-d> <esc>S
 
 " capitalise a word, stay at end of word
 inoremap <c-u> <esc>gUawea
 
 " a mapping to delete the last character at the end of a line
-
-" save files as soon as they are created
-" autocmd BufNewFile * :write
 
 " expand cls -> class in python files
 au FileType python :iabbrev cls class
@@ -266,5 +254,7 @@ aug filetype_html
     au FileType html nnoremap <buffer> <localleader>f Vatzf
 aug END
 
-inoremap ^L ^X^L
-inoremap ^F ^X^F
+" shortcut for autocompleting lines and filenames
+inoremap <c-l> <c-x><c-l>
+inoremap <c-f> <c-x><c-f>
+
