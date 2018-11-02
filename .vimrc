@@ -48,7 +48,7 @@ Plug 'beloglazov/vim-textobj-quotes'
 Plug 'jeetsukumaran/vim-pythonsense'
 
 Plug 'majutsushi/tagbar'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --js-completer --java-completer'}
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --js-completer --java-completer --rust-completer'}
 
 " Status bar for displaying currently virtualenv, git branch, etc.
 Plug 'vim-airline/vim-airline'
