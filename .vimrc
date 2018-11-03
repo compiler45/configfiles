@@ -17,6 +17,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jreybert/vimagit'
 Plug 'mhinz/vim-signify'
 
+Plug 'rust-lang/rust.vim'
+
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
@@ -31,6 +33,7 @@ Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-smartinput'
 
+" Frontend stuff
 Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -60,12 +63,11 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'lervag/vimtex'
 Plug 'rbonvall/vim-textobj-latex'
 
-Plug 'rizzatti/dash.vim'
-
 " Colorschemes
-"
 Plug 'morhetz/gruvbox'
 Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'lu-ren/SerialExperimentsLain'
+Plug 'koirand/tokyo-metro.vim'
 
 " All plugins must be added before the following line
 call plug#end()            " required
