@@ -100,7 +100,6 @@ let g:asyncrun_open = 10
 let g:asyncrun_status = "stopped" 
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
-
 " default color scheme
 set background=dark
 colorscheme deep-space
@@ -165,11 +164,13 @@ if has("autocmd")
   autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
 endif
 
-"simplify window navigation by skipping the <c-w>
+"split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" close left and right window without navigating to them
 
 " Make Gdiff split vertically
 set diffopt+=vertical
@@ -243,12 +244,13 @@ inoremap <c-d> <esc>S
 inoremap <c-u> <esc>gUawea
 
 " a mapping to delete the last character at the end of a line
+inoremap dl $x
 
 " expand cls -> class in python files
 au FileType python :iabbrev cls class
 
 " class init
-au FileType python :iabbrev clsinit def __init__(self):<left><left>
+au FileType python :iabbrev clsinit def __init__(self):<left><left>,
 
 map <localleader> \
 aug filetype_html
@@ -256,7 +258,15 @@ aug filetype_html
     au FileType html nnoremap <buffer> <localleader>f Vatzf
 aug END
 
-" shortcut for autocompleting lines and filenames
+" shortcuts for line and filename completion
 inoremap <c-l> <c-x><c-l>
 inoremap <c-f> <c-x><c-f>
 
+" append comma to end of a line. TODO: reduce timeout for wait
+nnoremap e, A,<esc>o
+
+" append colon to end of a line
+nnoremap e: A:<esc>o
+
+" append semicolon to end of line
+nnoremap e; A;<esc>o
